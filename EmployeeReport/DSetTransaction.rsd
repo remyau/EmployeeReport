@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <DataSet Name="DataSet1">
+    <Query>
+      <DataSourceReference>DSEmployeeDb</DataSourceReference>
+      <CommandText>Select t.transactionId TransactionId,t.customerId,c.FirstName+ ' '+ c.LastName CustName
+,t.shipping_state ShippingLocation,t.Item,p.Id ProductId,p.Description Product,t.retail_price Price 
+from TransactionNew t left join Customers c on t.customerid=c.id
+left join Products p on t.item=p.id</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="TransactionId">
+        <DataField>TransactionId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="customerId">
+        <DataField>customerId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="CustName">
+        <DataField>CustName</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ShippingLocation">
+        <DataField>ShippingLocation</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Item">
+        <DataField>Item</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ProductId">
+        <DataField>ProductId</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Product">
+        <DataField>Product</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Price">
+        <DataField>Price</DataField>
+        <rd:TypeName>System.Double</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
